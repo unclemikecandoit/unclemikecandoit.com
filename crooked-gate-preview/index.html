@@ -32,8 +32,8 @@ body {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
@@ -176,10 +176,21 @@ h1 {
   gap: 44px 30px;
 }
 
-.product img {
+/* LABEL EDGE FIX */
+
+.label-frame {
   width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.label-frame img {
+  width: 102%;
+  max-width: none;
   height: auto;
-  object-fit: contain;
+  margin-left: -1%;
+  margin-top: -1%;
+  margin-bottom: -1%;
 }
 
 .product-meta {
@@ -278,6 +289,7 @@ footer {
 }
 
 @media (max-width: 900px) {
+
   .hero-grid,
   .story-grid {
     grid-template-columns: 1fr;
@@ -302,6 +314,7 @@ footer {
 }
 
 @media (max-width: 620px) {
+
   .navlinks {
     display: none;
   }
@@ -329,287 +342,370 @@ footer {
 <body>
 
 <div class="topbar">
-  Family Crafted · Small Batch · Big Flavor
+Family Crafted · Small Batch · Big Flavor
 </div>
 
 <header>
-  <div class="wrap nav">
-    <div class="brand">Crooked Gate Seasonings</div>
+<div class="wrap nav">
 
-    <div class="navlinks">
-      <a href="#recipes">Family Recipes</a>
-      <a href="#story">Our Story</a>
-    </div>
-  </div>
+<div class="brand">
+Crooked Gate Seasonings
+</div>
+
+<div class="navlinks">
+<a href="#recipes">Family Recipes</a>
+<a href="#story">Our Story</a>
+</div>
+
+</div>
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="wrap hero-grid">
 
-    <img
-      class="hero-logo"
-      src="IMG_5975.jpeg"
-      alt="Crooked Gate Seasonings logo"
-    >
+<div class="wrap hero-grid">
 
-    <div>
-      <div class="eyebrow">
-        Crooked Gate Seasonings
-      </div>
+<img
+class="hero-logo"
+src="IMG_5975.jpeg"
+alt="Crooked Gate Seasonings logo"
+>
 
-      <h1>
-        Every Family Recipe Has to Start Somewhere.
-      </h1>
+<div>
 
-      <p>
-        Small-batch seasoning blends made for real kitchens,
-        shared meals, and recipes worth keeping.
-      </p>
+<div class="eyebrow">
+Crooked Gate Seasonings
+</div>
 
-      <a class="button" href="#recipes">
-        Explore the Family Recipes
-      </a>
-    </div>
+<h1>
+Every Family Recipe Has to Start Somewhere.
+</h1>
 
-  </div>
+<p>
+Small-batch seasoning blends made for real kitchens,
+shared meals, and recipes worth keeping.
+</p>
+
+<a class="button" href="#recipes">
+Explore the Family Recipes
+</a>
+
+</div>
+
+</div>
 </section>
 
 
 <section class="collection" id="recipes">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="section-head">
+<div class="section-head">
 
-      <div class="eyebrow">
-        The Collection
-      </div>
+<div class="eyebrow">
+The Collection
+</div>
 
-      <h2>
-        The Family Recipes
-      </h2>
+<h2>
+The Family Recipes
+</h2>
 
-      <p>
-        Every bag has a number.
-        Every number has a place at the table.
-      </p>
+<p>
+Every bag has a number.
+Every number has a place at the table.
+</p>
 
-    </div>
-
-
-    <div class="products">
-
-      <article class="product">
-        <img src="IMG_5974.jpeg" alt="Crooked Gate No. 01 Ranch label">
-
-        <div class="product-meta">
-          <div class="number">No. 01</div>
-          <h3>Ranch</h3>
-          <p>Good on burgers, fries, potatoes, chicken and vegetables.</p>
-        </div>
-      </article>
+</div>
 
 
-      <article class="product">
-        <img src="IMG_5973.jpeg" alt="Crooked Gate No. 02 Poultry Rub label">
-
-        <div class="product-meta">
-          <div class="number">No. 02</div>
-          <h3>Poultry Rub</h3>
-          <p>Good on chicken, turkey, potatoes and roasted vegetables.</p>
-        </div>
-      </article>
+<div class="products">
 
 
-      <article class="product">
-        <img src="IMG_5972.jpeg" alt="Crooked Gate No. 03 Butcher's Blend label">
+<article class="product">
 
-        <div class="product-meta">
-          <div class="number">No. 03</div>
-          <h3>Butcher's Blend</h3>
-          <p>Good on steak, burgers, pork, potatoes and vegetables.</p>
-        </div>
-      </article>
+<div class="label-frame">
+<img src="IMG_5974.jpeg" alt="Crooked Gate No. 01 Ranch label">
+</div>
 
+<div class="product-meta">
+<div class="number">No. 01</div>
+<h3>Ranch</h3>
+<p>
+Good on burgers, fries, potatoes, chicken and vegetables.
+</p>
+</div>
 
-      <article class="product">
-        <img src="IMG_5971.jpeg" alt="Crooked Gate No. 04 Smokehouse Rub label">
-
-        <div class="product-meta">
-          <div class="number">No. 04</div>
-          <h3>Smokehouse Rub</h3>
-          <p>Good on pork, chicken, ribs, potatoes and grilled vegetables.</p>
-        </div>
-      </article>
+</article>
 
 
-      <article class="product">
-        <img src="IMG_5970.jpeg" alt="Crooked Gate No. 05 BBQ Rub label">
+<article class="product">
 
-        <div class="product-meta">
-          <div class="number">No. 05</div>
-          <h3>BBQ Rub</h3>
-          <p>Good on chicken, pork, burgers, ribs and roasted vegetables.</p>
-        </div>
-      </article>
+<div class="label-frame">
+<img src="IMG_5973.jpeg" alt="Crooked Gate No. 02 Poultry Rub label">
+</div>
 
+<div class="product-meta">
+<div class="number">No. 02</div>
+<h3>Poultry Rub</h3>
+<p>
+Good on chicken, turkey, potatoes and roasted vegetables.
+</p>
+</div>
 
-      <article class="product">
-        <img src="IMG_5969.jpeg" alt="Crooked Gate No. 06 Taco label">
-
-        <div class="product-meta">
-          <div class="number">No. 06</div>
-          <h3>Taco</h3>
-          <p>Good in tacos, ground beef, chicken, rice and beans.</p>
-        </div>
-      </article>
+</article>
 
 
-      <article class="product">
-        <img src="IMG_5968.jpeg" alt="Crooked Gate No. 07 Fajitas label">
+<article class="product">
 
-        <div class="product-meta">
-          <div class="number">No. 07</div>
-          <h3>Fajitas</h3>
-          <p>Good with chicken, steak, peppers, onions and rice.</p>
-        </div>
-      </article>
+<div class="label-frame">
+<img src="IMG_5972.jpeg" alt="Crooked Gate No. 03 Butcher's Blend label">
+</div>
 
+<div class="product-meta">
+<div class="number">No. 03</div>
+<h3>Butcher's Blend</h3>
+<p>
+Good on steak, burgers, pork, potatoes and vegetables.
+</p>
+</div>
 
-      <article class="product">
-        <img src="IMG_5967.jpeg" alt="Crooked Gate No. 08 Mom's Spaghetti label">
-
-        <div class="product-meta">
-          <div class="number">No. 08</div>
-          <h3>Mom's Spaghetti</h3>
-          <p>Made for pasta, meat sauce, meatballs and garlic bread.</p>
-        </div>
-      </article>
+</article>
 
 
-      <article class="product">
-        <img src="IMG_5966.jpeg" alt="Crooked Gate No. 09 Italian Seasoning label">
+<article class="product">
 
-        <div class="product-meta">
-          <div class="number">No. 09</div>
-          <h3>Italian Seasoning</h3>
-          <p>Good in pasta, vegetables, chicken, bread and marinades.</p>
-        </div>
-      </article>
+<div class="label-frame">
+<img src="IMG_5971.jpeg" alt="Crooked Gate No. 04 Smokehouse Rub label">
+</div>
 
+<div class="product-meta">
+<div class="number">No. 04</div>
+<h3>Smokehouse Rub</h3>
+<p>
+Good on pork, chicken, ribs, potatoes and grilled vegetables.
+</p>
+</div>
 
-      <article class="product">
-        <img src="IMG_5965.jpeg" alt="Crooked Gate No. 10 Garlic Salt label">
-
-        <div class="product-meta">
-          <div class="number">No. 10</div>
-          <h3>Garlic Salt</h3>
-          <p>Good on potatoes, vegetables, eggs, chicken and everyday cooking.</p>
-        </div>
-      </article>
+</article>
 
 
-      <article class="product">
-        <img src="IMG_5964.jpeg" alt="Crooked Gate No. 11 Homestead Blend label">
+<article class="product">
 
-        <div class="product-meta">
-          <div class="number">No. 11</div>
-          <h3>Homestead Blend</h3>
-          <p>Good on meat, potatoes, vegetables, soups and everyday meals.</p>
-        </div>
-      </article>
+<div class="label-frame">
+<img src="IMG_5970.jpeg" alt="Crooked Gate No. 05 BBQ Rub label">
+</div>
 
-    </div>
+<div class="product-meta">
+<div class="number">No. 05</div>
+<h3>BBQ Rub</h3>
+<p>
+Good on chicken, pork, burgers, ribs and roasted vegetables.
+</p>
+</div>
 
-  </div>
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5969.jpeg" alt="Crooked Gate No. 06 Taco label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 06</div>
+<h3>Taco</h3>
+<p>
+Good in tacos, ground beef, chicken, rice and beans.
+</p>
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5968.jpeg" alt="Crooked Gate No. 07 Fajitas label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 07</div>
+<h3>Fajitas</h3>
+<p>
+Good with chicken, steak, peppers, onions and rice.
+</p>
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5967.jpeg" alt="Crooked Gate No. 08 Mom's Spaghetti label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 08</div>
+<h3>Mom's Spaghetti</h3>
+<p>
+Made for pasta, meat sauce, meatballs and garlic bread.
+</p>
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5966.jpeg" alt="Crooked Gate No. 09 Italian Seasoning label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 09</div>
+<h3>Italian Seasoning</h3>
+<p>
+Good in pasta, vegetables, chicken, bread and marinades.
+</p>
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5965.jpeg" alt="Crooked Gate No. 10 Garlic Salt label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 10</div>
+<h3>Garlic Salt</h3>
+<p>
+Good on potatoes, vegetables, eggs, chicken and everyday cooking.
+</p>
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="label-frame">
+<img src="IMG_5964.jpeg" alt="Crooked Gate No. 11 Homestead Blend label">
+</div>
+
+<div class="product-meta">
+<div class="number">No. 11</div>
+<h3>Homestead Blend</h3>
+<p>
+Good on meat, potatoes, vegetables, soups and everyday meals.
+</p>
+</div>
+
+</article>
+
+
+</div>
+</div>
 </section>
 
 
 <section class="story" id="story">
 
-  <div class="wrap story-grid">
+<div class="wrap story-grid">
 
-    <div>
+<div>
 
-      <div class="eyebrow">
-        Our Story
-      </div>
+<div class="eyebrow">
+Our Story
+</div>
 
-      <h2>
-        Made for the Table.
-      </h2>
+<h2>
+Made for the Table.
+</h2>
 
-      <p>
-        Some recipes are written down.
-        Some are remembered.
-        And some become the meals everybody asks you to make again.
-      </p>
+<p>
+Some recipes are written down.
+Some are remembered.
+And some become the meals everybody asks you to make again.
+</p>
 
-      <p>
-        Crooked Gate is a collection of small-batch seasoning blends
-        made for real kitchens, shared meals, and recipes worth keeping.
-      </p>
+<p>
+Crooked Gate is a collection of small-batch seasoning blends
+made for real kitchens, shared meals, and recipes worth keeping.
+</p>
 
-    </div>
+</div>
 
 
-    <div class="story-note">
+<div class="story-note">
 
-      <strong>
-        From Our Table
-      </strong>
+<strong>
+From Our Table
+</strong>
 
-      <p>
-        Start with the blend, find something good to make,
-        and make it your own.
-        As the collection grows, so will the recipes and meal ideas
-        that go with each number.
-      </p>
+<p>
+Start with the blend, find something good to make,
+and make it your own. As the collection grows,
+so will the recipes and meal ideas that go with each number.
+</p>
 
-    </div>
+</div>
 
-  </div>
-
+</div>
 </section>
 
 
 <section class="values">
 
-  <div class="wrap value-grid">
+<div class="wrap value-grid">
 
-    <div class="value">
-      <h3>Simple Ingredients</h3>
+<div class="value">
 
-      <p>
-        Thoughtfully blended seasonings made to make
-        everyday cooking easier.
-      </p>
-    </div>
+<h3>
+Simple Ingredients
+</h3>
 
+<p>
+Thoughtfully blended seasonings made to make
+everyday cooking easier.
+</p>
 
-    <div class="value">
-      <h3>Small Batch</h3>
-
-      <p>
-        Family crafted in small batches with attention
-        to every blend.
-      </p>
-    </div>
+</div>
 
 
-    <div class="value">
-      <h3>Big Flavor</h3>
+<div class="value">
 
-      <p>
-        Made for the meals your family already loves
-        and the recipes still to come.
-      </p>
-    </div>
+<h3>
+Small Batch
+</h3>
 
-  </div>
+<p>
+Family crafted in small batches with attention
+to every blend.
+</p>
 
+</div>
+
+
+<div class="value">
+
+<h3>
+Big Flavor
+</h3>
+
+<p>
+Made for the meals your family already loves
+and the recipes still to come.
+</p>
+
+</div>
+
+</div>
 </section>
 
 </main>
@@ -617,13 +713,13 @@ footer {
 
 <footer>
 
-  <strong>
-    Every Family Recipe Has to Start Somewhere.
-  </strong>
+<strong>
+Every Family Recipe Has to Start Somewhere.
+</strong>
 
-  <br>
+<br>
 
-  Crooked Gate Seasonings · Family Crafted · Small Batch
+Crooked Gate Seasonings · Family Crafted · Small Batch
 
 </footer>
 
