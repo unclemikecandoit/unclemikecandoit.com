@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="robots" content="noindex, nofollow">
 
 <title>Crooked Gate Seasonings | Preview</title>
@@ -11,10 +10,10 @@
 <style>
 :root {
   --cream: #f2eadc;
-  --cream-dark: #e6dac6;
-  --black: #191611;
-  --brown: #675e52;
-  --line: #b9aa92;
+  --cream2: #e9ddc9;
+  --ink: #17140f;
+  --muted: #6e6457;
+  --line: #baa990;
 }
 
 * {
@@ -28,228 +27,249 @@ html {
 body {
   margin: 0;
   background: var(--cream);
-  color: var(--black);
+  color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
 }
 
-.topbar {
-  background: var(--black);
-  color: var(--cream);
-  text-align: center;
-  padding: 10px 15px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: .22em;
-  text-transform: uppercase;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 22px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-size: 22px;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-.navlinks {
-  display: flex;
-  gap: 25px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-}
-
-.navlinks a {
+a {
   color: inherit;
   text-decoration: none;
 }
 
-.hero {
-  max-width: 1200px;
-  margin: auto;
-  padding: 80px 5%;
+.topbar {
+  background: var(--ink);
+  color: var(--cream);
   text-align: center;
-}
-
-.smalltitle {
+  padding: 10px 14px;
   font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--brown);
+}
+
+.wrap {
+  width: min(1180px, 92vw);
+  margin: 0 auto;
+}
+
+header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(242,234,220,.96);
+}
+
+.nav {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: 22px;
+}
+
+.navlinks {
+  display: flex;
+  gap: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding: 58px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-logo {
+  width: min(420px, 100%);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .02em;
 }
 
 h1 {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-size: clamp(55px, 9vw, 110px);
+  font-size: clamp(54px, 7vw, 96px);
   line-height: .92;
-  text-transform: uppercase;
-  letter-spacing: .015em;
-  max-width: 950px;
-  margin: 15px auto 25px;
+  margin: 10px 0 18px;
 }
 
 .hero p {
+  font-size: 19px;
+  line-height: 1.65;
   max-width: 650px;
-  margin: auto;
-  font-size: 20px;
-  line-height: 1.6;
+  margin: 0;
 }
 
 .button {
   display: inline-block;
-  margin-top: 30px;
-  background: var(--black);
+  margin-top: 25px;
+  background: var(--ink);
   color: white;
-  padding: 16px 22px;
-  text-decoration: none;
+  padding: 15px 20px;
   font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 .collection {
-  border-top: 1px solid var(--line);
-  padding: 70px 5%;
+  padding: 64px 0 72px;
 }
 
-.section-title {
-  max-width: 700px;
-  margin: 0 auto 50px;
+.section-head {
   text-align: center;
+  max-width: 760px;
+  margin: 0 auto 42px;
 }
 
-h2 {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  text-transform: uppercase;
-  font-size: clamp(45px, 7vw, 75px);
-  line-height: 1;
-  margin: 10px 0;
+.section-head h2 {
+  font-size: clamp(44px, 5.5vw, 74px);
+  margin: 6px 0 10px;
 }
 
-.section-title p {
-  color: var(--brown);
+.section-head p {
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.6;
-}
-
-.products {
-  max-width: 1150px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 55px 35px;
-}
-
-.product {
-  border-top: 1px solid var(--line);
-  padding-top: 25px;
-}
-
-.placeholder {
-  aspect-ratio: 2 / 3;
-  border: 2px solid var(--black);
-  background: var(--cream-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  text-align: center;
-}
-
-.placeholder span {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  text-transform: uppercase;
-  font-size: 34px;
-  line-height: 1.05;
-}
-
-.number {
-  margin-top: 18px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--brown);
-}
-
-.product h3 {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-size: 31px;
-  text-transform: uppercase;
-  margin: 5px 0 8px;
-}
-
-.product p {
-  color: var(--brown);
-  line-height: 1.5;
   margin: 0;
 }
 
-.story {
-  margin-top: 70px;
-  background: var(--black);
-  color: var(--cream);
-  padding: 80px 5%;
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px 30px;
 }
 
-.story-inner {
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
+.product img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-meta {
+  padding-top: 17px;
+}
+
+.number {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.product h3 {
+  font-size: 30px;
+  line-height: 1;
+  margin: 5px 0 9px;
+}
+
+.product p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.story {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 58px 0;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.story h2 {
+  font-size: clamp(44px, 5.3vw, 72px);
+  line-height: .95;
+  margin: 8px 0 15px;
 }
 
 .story p {
-  max-width: 720px;
-  margin: 20px auto 0;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.7;
 }
 
+.story-note {
+  border-left: 3px solid var(--ink);
+  padding-left: 24px;
+}
+
+.story-note strong {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
 .values {
-  max-width: 1100px;
-  margin: auto;
-  padding: 65px 5%;
+  padding: 46px 0;
+}
+
+.value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
+  gap: 24px;
 }
 
 .value {
   border-top: 1px solid var(--line);
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 .value h3 {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  text-transform: uppercase;
-  font-size: 28px;
-  margin: 0 0 10px;
+  font-size: 27px;
+  margin: 0 0 8px;
 }
 
 .value p {
-  color: var(--brown);
-  line-height: 1.6;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 footer {
-  background: var(--black);
+  background: var(--ink);
   color: var(--cream);
   text-align: center;
   padding: 40px 20px;
@@ -257,35 +277,52 @@ footer {
   line-height: 1.7;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  .hero-grid,
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .hero-grid {
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero p {
+    margin: 0 auto;
+  }
+
+  .hero-logo {
+    width: 300px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
   .navlinks {
     display: none;
   }
 
-  nav {
+  .nav {
     justify-content: center;
-  }
-
-  .hero {
-    padding-top: 60px;
-    padding-bottom: 60px;
   }
 
   .products {
     grid-template-columns: 1fr;
-    max-width: 470px;
   }
 
-  .values {
+  .product {
+    max-width: 470px;
+    margin: 0 auto;
+  }
+
+  .value-grid {
     grid-template-columns: 1fr;
   }
-
-  .placeholder span {
-    font-size: 40px;
-  }
 }
-
 </style>
 </head>
 
@@ -295,170 +332,243 @@ footer {
   Family Crafted · Small Batch · Big Flavor
 </div>
 
-<nav>
-  <div class="brand">Crooked Gate Seasonings</div>
+<header>
+  <div class="wrap nav">
+    <div class="brand">Crooked Gate Seasonings</div>
 
-  <div class="navlinks">
-    <a href="#recipes">Family Recipes</a>
-    <a href="#story">Our Story</a>
+    <div class="navlinks">
+      <a href="#recipes">Family Recipes</a>
+      <a href="#story">Our Story</a>
+    </div>
   </div>
-</nav>
+</header>
+
+<main>
 
 <section class="hero">
+  <div class="wrap hero-grid">
 
-  <div class="smalltitle">
-    Crooked Gate Seasonings
+    <img
+      class="hero-logo"
+      src="IMG_5975.jpeg"
+      alt="Crooked Gate Seasonings logo"
+    >
+
+    <div>
+      <div class="eyebrow">
+        Crooked Gate Seasonings
+      </div>
+
+      <h1>
+        Every Family Recipe Has to Start Somewhere.
+      </h1>
+
+      <p>
+        Small-batch seasoning blends made for real kitchens,
+        shared meals, and recipes worth keeping.
+      </p>
+
+      <a class="button" href="#recipes">
+        Explore the Family Recipes
+      </a>
+    </div>
+
   </div>
-
-  <h1>
-    Every Family Recipe<br>
-    Has to Start Somewhere.
-  </h1>
-
-  <p>
-    Small-batch seasoning blends made for real kitchens,
-    shared meals, and recipes worth keeping.
-  </p>
-
-  <a class="button" href="#recipes">
-    Explore the Family Recipes
-  </a>
-
 </section>
 
 
 <section class="collection" id="recipes">
 
-  <div class="section-title">
+  <div class="wrap">
 
-    <div class="smalltitle">
-      The Collection
+    <div class="section-head">
+
+      <div class="eyebrow">
+        The Collection
+      </div>
+
+      <h2>
+        The Family Recipes
+      </h2>
+
+      <p>
+        Every bag has a number.
+        Every number has a place at the table.
+      </p>
+
     </div>
 
-    <h2>The Family Recipes</h2>
 
-    <p>
-      Every bag has a number.
-      Every number has a place at the table.
-    </p>
+    <div class="products">
+
+      <article class="product">
+        <img src="IMG_5974.jpeg" alt="Crooked Gate No. 01 Ranch label">
+
+        <div class="product-meta">
+          <div class="number">No. 01</div>
+          <h3>Ranch</h3>
+          <p>Good on burgers, fries, potatoes, chicken and vegetables.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5973.jpeg" alt="Crooked Gate No. 02 Poultry Rub label">
+
+        <div class="product-meta">
+          <div class="number">No. 02</div>
+          <h3>Poultry Rub</h3>
+          <p>Good on chicken, turkey, potatoes and roasted vegetables.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5972.jpeg" alt="Crooked Gate No. 03 Butcher's Blend label">
+
+        <div class="product-meta">
+          <div class="number">No. 03</div>
+          <h3>Butcher's Blend</h3>
+          <p>Good on steak, burgers, pork, potatoes and vegetables.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5971.jpeg" alt="Crooked Gate No. 04 Smokehouse Rub label">
+
+        <div class="product-meta">
+          <div class="number">No. 04</div>
+          <h3>Smokehouse Rub</h3>
+          <p>Good on pork, chicken, ribs, potatoes and grilled vegetables.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5970.jpeg" alt="Crooked Gate No. 05 BBQ Rub label">
+
+        <div class="product-meta">
+          <div class="number">No. 05</div>
+          <h3>BBQ Rub</h3>
+          <p>Good on chicken, pork, burgers, ribs and roasted vegetables.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5969.jpeg" alt="Crooked Gate No. 06 Taco label">
+
+        <div class="product-meta">
+          <div class="number">No. 06</div>
+          <h3>Taco</h3>
+          <p>Good in tacos, ground beef, chicken, rice and beans.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5968.jpeg" alt="Crooked Gate No. 07 Fajitas label">
+
+        <div class="product-meta">
+          <div class="number">No. 07</div>
+          <h3>Fajitas</h3>
+          <p>Good with chicken, steak, peppers, onions and rice.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5967.jpeg" alt="Crooked Gate No. 08 Mom's Spaghetti label">
+
+        <div class="product-meta">
+          <div class="number">No. 08</div>
+          <h3>Mom's Spaghetti</h3>
+          <p>Made for pasta, meat sauce, meatballs and garlic bread.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5966.jpeg" alt="Crooked Gate No. 09 Italian Seasoning label">
+
+        <div class="product-meta">
+          <div class="number">No. 09</div>
+          <h3>Italian Seasoning</h3>
+          <p>Good in pasta, vegetables, chicken, bread and marinades.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5965.jpeg" alt="Crooked Gate No. 10 Garlic Salt label">
+
+        <div class="product-meta">
+          <div class="number">No. 10</div>
+          <h3>Garlic Salt</h3>
+          <p>Good on potatoes, vegetables, eggs, chicken and everyday cooking.</p>
+        </div>
+      </article>
+
+
+      <article class="product">
+        <img src="IMG_5964.jpeg" alt="Crooked Gate No. 11 Homestead Blend label">
+
+        <div class="product-meta">
+          <div class="number">No. 11</div>
+          <h3>Homestead Blend</h3>
+          <p>Good on meat, potatoes, vegetables, soups and everyday meals.</p>
+        </div>
+      </article>
+
+    </div>
 
   </div>
-
-
-  <div class="products">
-
-    <div class="product">
-      <div class="placeholder"><span>Ranch</span></div>
-      <div class="number">No. 01</div>
-      <h3>Ranch</h3>
-      <p>Good on burgers, fries, potatoes, chicken and vegetables.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Poultry<br>Rub</span></div>
-      <div class="number">No. 02</div>
-      <h3>Poultry Rub</h3>
-      <p>Good on chicken, turkey, potatoes and roasted vegetables.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Butcher's<br>Blend</span></div>
-      <div class="number">No. 03</div>
-      <h3>Butcher's Blend</h3>
-      <p>Good on steak, burgers, pork, potatoes and vegetables.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Smokehouse<br>Rub</span></div>
-      <div class="number">No. 04</div>
-      <h3>Smokehouse Rub</h3>
-      <p>Good on pork, chicken, ribs, potatoes and grilled vegetables.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>BBQ<br>Rub</span></div>
-      <div class="number">No. 05</div>
-      <h3>BBQ Rub</h3>
-      <p>Good on chicken, pork, burgers, ribs and roasted vegetables.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Taco</span></div>
-      <div class="number">No. 06</div>
-      <h3>Taco</h3>
-      <p>Good in tacos, ground beef, chicken, rice and beans.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Fajitas</span></div>
-      <div class="number">No. 07</div>
-      <h3>Fajitas</h3>
-      <p>Good with chicken, steak, peppers, onions and rice.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Mom's<br>Spaghetti</span></div>
-      <div class="number">No. 08</div>
-      <h3>Mom's Spaghetti</h3>
-      <p>Made for pasta, meat sauce, meatballs and garlic bread.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Italian<br>Seasoning</span></div>
-      <div class="number">No. 09</div>
-      <h3>Italian Seasoning</h3>
-      <p>Good in pasta, vegetables, chicken, bread and marinades.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Garlic<br>Salt</span></div>
-      <div class="number">No. 10</div>
-      <h3>Garlic Salt</h3>
-      <p>Good on potatoes, vegetables, eggs, chicken and everyday cooking.</p>
-    </div>
-
-
-    <div class="product">
-      <div class="placeholder"><span>Homestead<br>Blend</span></div>
-      <div class="number">No. 11</div>
-      <h3>Homestead Blend</h3>
-      <p>Good on meat, potatoes, vegetables, soups and everyday meals.</p>
-    </div>
-
-  </div>
-
 </section>
 
 
 <section class="story" id="story">
 
-  <div class="story-inner">
+  <div class="wrap story-grid">
 
-    <div class="smalltitle">
-      Our Family Recipe
+    <div>
+
+      <div class="eyebrow">
+        Our Story
+      </div>
+
+      <h2>
+        Made for the Table.
+      </h2>
+
+      <p>
+        Some recipes are written down.
+        Some are remembered.
+        And some become the meals everybody asks you to make again.
+      </p>
+
+      <p>
+        Crooked Gate is a collection of small-batch seasoning blends
+        made for real kitchens, shared meals, and recipes worth keeping.
+      </p>
+
     </div>
 
-    <h2>Made for the Table.</h2>
 
-    <p>
-      Some recipes are written down. Some are remembered.
-      And some become the meals everybody asks you to make again.
-    </p>
+    <div class="story-note">
 
-    <p>
-      Crooked Gate is a collection of small-batch seasoning
-      blends made for real kitchens, shared meals,
-      and recipes worth keeping.
-    </p>
+      <strong>
+        From Our Table
+      </strong>
+
+      <p>
+        Start with the blend, find something good to make,
+        and make it your own.
+        As the collection grows, so will the recipes and meal ideas
+        that go with each number.
+      </p>
+
+    </div>
 
   </div>
 
@@ -467,31 +577,42 @@ footer {
 
 <section class="values">
 
-  <div class="value">
-    <h3>Simple Ingredients</h3>
-    <p>
-      Thoughtfully blended seasonings made to make
-      everyday cooking easier.
-    </p>
-  </div>
+  <div class="wrap value-grid">
 
-  <div class="value">
-    <h3>Small Batch</h3>
-    <p>
-      Family crafted in small batches with attention
-      to every blend.
-    </p>
-  </div>
+    <div class="value">
+      <h3>Simple Ingredients</h3>
 
-  <div class="value">
-    <h3>Big Flavor</h3>
-    <p>
-      Made for the meals your family already loves
-      and the recipes still to come.
-    </p>
+      <p>
+        Thoughtfully blended seasonings made to make
+        everyday cooking easier.
+      </p>
+    </div>
+
+
+    <div class="value">
+      <h3>Small Batch</h3>
+
+      <p>
+        Family crafted in small batches with attention
+        to every blend.
+      </p>
+    </div>
+
+
+    <div class="value">
+      <h3>Big Flavor</h3>
+
+      <p>
+        Made for the meals your family already loves
+        and the recipes still to come.
+      </p>
+    </div>
+
   </div>
 
 </section>
+
+</main>
 
 
 <footer>
@@ -502,8 +623,7 @@ footer {
 
   <br>
 
-  Crooked Gate Seasonings<br>
-  Family Crafted · Small Batch
+  Crooked Gate Seasonings · Family Crafted · Small Batch
 
 </footer>
 
