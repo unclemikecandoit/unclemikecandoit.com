@@ -176,8 +176,6 @@ h1 {
   gap: 44px 30px;
 }
 
-/* LABEL EDGE FIX */
-
 .label-frame {
   width: 100%;
   overflow: hidden;
@@ -217,6 +215,18 @@ h1 {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.55;
+}
+
+.recipe-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
 }
 
 .story {
@@ -279,6 +289,88 @@ h1 {
   line-height: 1.55;
 }
 
+.recipe-section {
+  border-top: 1px solid var(--line);
+  padding: 72px 0;
+}
+
+.recipe-head {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 34px;
+}
+
+.recipe-head h2 {
+  font-size: clamp(48px, 6vw, 84px);
+  line-height: .95;
+  margin: 7px 0 12px;
+}
+
+.recipe-head p {
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.food-hero {
+  width: min(900px, 100%);
+  max-height: 760px;
+  object-fit: cover;
+  margin: 0 auto 44px;
+  border: 1px solid var(--line);
+}
+
+.recipe-layout {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 58px;
+}
+
+.recipe-layout h3 {
+  font-size: 34px;
+  margin: 0 0 12px;
+}
+
+.recipe-layout ul,
+.recipe-layout ol {
+  padding-left: 22px;
+}
+
+.recipe-layout li,
+.recipe-layout p {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.callout {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 17px 0;
+  margin-top: 24px;
+}
+
+.callout strong {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
 footer {
   background: var(--ink);
   color: var(--cream);
@@ -291,7 +383,8 @@ footer {
 @media (max-width: 900px) {
 
   .hero-grid,
-  .story-grid {
+  .story-grid,
+  .recipe-layout {
     grid-template-columns: 1fr;
   }
 
@@ -335,6 +428,14 @@ footer {
   .value-grid {
     grid-template-columns: 1fr;
   }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    height: auto;
+  }
 }
 </style>
 </head>
@@ -355,6 +456,7 @@ Crooked Gate Seasonings
 <div class="navlinks">
 <a href="#recipes">Family Recipes</a>
 <a href="#story">Our Story</a>
+<a href="#ranch-recipe">From Our Table</a>
 </div>
 
 </div>
@@ -434,6 +536,10 @@ Every number has a place at the table.
 <p>
 Good on burgers, fries, potatoes, chicken and vegetables.
 </p>
+
+<a class="recipe-link" href="#ranch-recipe">
+Open Recipe
+</a>
 </div>
 
 </article>
@@ -702,6 +808,139 @@ Big Flavor
 Made for the meals your family already loves
 and the recipes still to come.
 </p>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="recipe-section" id="ranch-recipe">
+
+<div class="wrap">
+
+<div class="recipe-head">
+
+<div class="eyebrow">
+From Our Table · No. 01 Ranch
+</div>
+
+<h2>
+Ranch Burgers & Fries
+</h2>
+
+<p>
+A simple burger-and-fries dinner seasoned with
+Crooked Gate No. 01 Ranch from the patties to the potatoes.
+</p>
+
+</div>
+
+
+<img
+class="food-hero"
+src="1000019193.jpeg"
+alt="Crooked Gate Ranch burger with seasoned fries"
+>
+
+
+<div class="recipe-layout">
+
+<div>
+
+<h3>
+You'll Need
+</h3>
+
+<ul>
+<li>Ground beef</li>
+<li>Potatoes, cut into fries</li>
+<li>Crooked Gate No. 01 Ranch</li>
+<li>Cooking oil</li>
+<li>Your favorite cheese</li>
+<li>Burger buns or crisp lettuce</li>
+<li>Your favorite burger toppings</li>
+</ul>
+
+
+<div class="callout">
+
+<strong>
+Make It Yours
+</strong>
+
+<p>
+Serve it on a toasted bun or wrap it in crisp lettuce.
+Add avocado, pickles, peppers, onions, or whatever
+your family likes on a burger.
+</p>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>
+Make It Like We Do
+</h3>
+
+<ol>
+
+<li>
+<strong>Prep the fries.</strong>
+Cut the potatoes into fries, toss lightly with oil,
+and season generously with Crooked Gate No. 01 Ranch.
+</li>
+
+<li>
+<strong>Cook until crisp.</strong>
+Air fry or bake until the potatoes are browned on the edges
+and tender inside.
+</li>
+
+<li>
+<strong>Season the burgers.</strong>
+Form the ground beef into patties and season both sides
+with Crooked Gate No. 01 Ranch.
+</li>
+
+<li>
+<strong>Cook the patties.</strong>
+Pan cook or grill to your preferred doneness.
+Add cheese near the end if you want it.
+</li>
+
+<li>
+<strong>Build and serve.</strong>
+Add your favorite toppings and serve with
+the Ranch-seasoned fries.
+</li>
+
+</ol>
+
+</div>
+
+</div>
+
+
+<div class="gallery">
+
+<img
+src="1000019188.jpeg"
+alt="Crooked Gate Ranch seasoned burger patties cooking"
+>
+
+<img
+src="1000019189.jpeg"
+alt="Potatoes seasoned with Crooked Gate Ranch"
+>
+
+<img
+src="1000019190.jpeg"
+alt="Finished Crooked Gate Ranch burger and fries"
+>
 
 </div>
 
