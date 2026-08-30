@@ -16,19 +16,19 @@
   --line: #baa990;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
+}
+
+body.pantries-open {
+  overflow: hidden;
 }
 
 img {
@@ -39,6 +39,10 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  font: inherit;
 }
 
 .topbar {
@@ -60,7 +64,10 @@ a {
 
 header {
   border-bottom: 1px solid var(--line);
-  background: rgba(242,234,220,.96);
+  background: rgba(242,234,220,.97);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .nav {
@@ -78,6 +85,12 @@ header {
   font-size: 22px;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .navlinks {
   display: flex;
   gap: 24px;
@@ -86,6 +99,28 @@ header {
   font-weight: 700;
   letter-spacing: .13em;
   text-transform: uppercase;
+}
+
+.pantry-button {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 11px 14px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pantry-button.bump {
+  animation: pantryBump .28s ease;
+}
+
+@keyframes pantryBump {
+  50% { transform: scale(1.08); }
 }
 
 .hero {
@@ -114,9 +149,7 @@ header {
   color: var(--muted);
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
   letter-spacing: .02em;
@@ -173,7 +206,7 @@ h1 {
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 44px 30px;
+  gap: 52px 30px;
 }
 
 .label-frame {
@@ -227,6 +260,72 @@ h1 {
   font-weight: 700;
   letter-spacing: .13em;
   text-transform: uppercase;
+}
+
+.buy-box {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.choose-label {
+  display: block;
+  margin-bottom: 9px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.size-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.size-button {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 7px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.size-button.selected {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.add-pantry {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  padding: 13px 10px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  transition: .18s ease;
+}
+
+.add-pantry:active {
+  transform: scale(.98);
+}
+
+.add-pantry.added {
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .story {
@@ -380,8 +479,283 @@ footer {
   line-height: 1.7;
 }
 
-@media (max-width: 900px) {
+/* PANTRY */
 
+.pantry-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23,20,15,.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 100;
+}
+
+.pantry-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pantry-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(440px, 94vw);
+  height: 100dvh;
+  background: var(--cream);
+  border-left: 1px solid var(--ink);
+  transform: translateX(105%);
+  transition: transform .3s ease;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+}
+
+.pantry-drawer.open {
+  transform: translateX(0);
+}
+
+.pantry-header {
+  padding: 25px 22px 20px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.pantry-header .eyebrow {
+  margin-bottom: 4px;
+}
+
+.pantry-header h2 {
+  font-size: 46px;
+  margin: 0;
+  line-height: .95;
+}
+
+.pantry-message {
+  margin: 9px 40px 0 0;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.close-pantry {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.pantry-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 22px 20px;
+}
+
+.empty-pantry {
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.empty-pantry h3 {
+  font-size: 31px;
+  margin: 0 0 8px;
+}
+
+.empty-pantry p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pantry-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pantry-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pantry-item-number {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pantry-item h3 {
+  margin: 3px 0 5px;
+  font-size: 25px;
+}
+
+.pantry-item-size {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pantry-item-price {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.pantry-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--ink);
+}
+
+.qty-control button {
+  width: 35px;
+  height: 33px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.qty-control span {
+  min-width: 28px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.remove-item {
+  border: 0;
+  border-bottom: 1px solid var(--muted);
+  padding: 0 0 2px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.pantry-recipe {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--cream2);
+  border-left: 2px solid var(--ink);
+}
+
+.pantry-recipe span {
+  display: block;
+  margin-bottom: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pantry-recipe a {
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.pantry-footer {
+  padding: 20px 22px 24px;
+  border-top: 1px solid var(--ink);
+  background: var(--cream);
+}
+
+.pantry-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.pantry-total span {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.pantry-total strong {
+  font-size: 27px;
+}
+
+.keep-shopping,
+.checkout-button {
+  width: 100%;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.checkout-button {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 15px 12px;
+}
+
+.keep-shopping {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 14px 10px 7px;
+}
+
+.checkout-note {
+  margin: 10px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 25px;
+  transform: translate(-50%, 30px);
+  width: min(420px, calc(100vw - 30px));
+  background: var(--ink);
+  color: var(--cream);
+  padding: 15px 18px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s ease;
+  z-index: 200;
+  font-size: 14px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 900px) {
   .hero-grid,
   .story-grid,
   .recipe-layout {
@@ -404,16 +778,24 @@ footer {
   .products {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media (max-width: 620px) {
 
   .navlinks {
     display: none;
   }
+}
+
+@media (max-width: 620px) {
+  .brand {
+    font-size: 18px;
+  }
 
   .nav {
-    justify-content: center;
+    min-height: 62px;
+  }
+
+  .pantry-button {
+    padding: 10px 11px;
+    font-size: 9px;
   }
 
   .products {
@@ -449,50 +831,42 @@ Family Crafted · Small Batch · Big Flavor
 <header>
 <div class="wrap nav">
 
-<div class="brand">
-Crooked Gate Seasonings
-</div>
+<a href="#" class="brand">Crooked Gate Seasonings</a>
 
-<div class="navlinks">
+<div class="nav-right">
+
+<nav class="navlinks">
 <a href="#recipes">Family Recipes</a>
 <a href="#story">Our Story</a>
 <a href="#ranch-recipe">From Our Table</a>
-</div>
+</nav>
 
+<button class="pantry-button" id="pantryButton" onclick="openPantry()">
+The Pantry · <span id="cartCount">0</span>
+</button>
+
+</div>
 </div>
 </header>
 
 <main>
 
 <section class="hero">
-
 <div class="wrap hero-grid">
 
-<img
-class="hero-logo"
-src="IMG_5975.jpeg"
-alt="Crooked Gate Seasonings logo"
->
+<img class="hero-logo" src="IMG_5975.jpeg" alt="Crooked Gate Seasonings logo">
 
 <div>
+<div class="eyebrow">Crooked Gate Seasonings</div>
 
-<div class="eyebrow">
-Crooked Gate Seasonings
-</div>
-
-<h1>
-Every Family Recipe Has to Start Somewhere.
-</h1>
+<h1>Every Family Recipe Has to Start Somewhere.</h1>
 
 <p>
 Small-batch seasoning blends made for real kitchens,
 shared meals, and recipes worth keeping.
 </p>
 
-<a class="button" href="#recipes">
-Explore the Family Recipes
-</a>
-
+<a class="button" href="#recipes">Explore the Family Recipes</a>
 </div>
 
 </div>
@@ -500,243 +874,31 @@ Explore the Family Recipes
 
 
 <section class="collection" id="recipes">
-
 <div class="wrap">
 
 <div class="section-head">
-
-<div class="eyebrow">
-The Collection
-</div>
-
-<h2>
-The Family Recipes
-</h2>
-
+<div class="eyebrow">The Collection</div>
+<h2>The Family Recipes</h2>
 <p>
-Every bag has a number.
-Every number has a place at the table.
-</p>
-
-</div>
-
-
-<div class="products">
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5974.jpeg" alt="Crooked Gate No. 01 Ranch label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 01</div>
-<h3>Ranch</h3>
-<p>
-Good on burgers, fries, potatoes, chicken and vegetables.
-</p>
-
-<a class="recipe-link" href="#ranch-recipe">
-Open Recipe
-</a>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5973.jpeg" alt="Crooked Gate No. 02 Poultry Rub label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 02</div>
-<h3>Poultry Rub</h3>
-<p>
-Good on chicken, turkey, potatoes and roasted vegetables.
+Every bag has a number. Every number has a place at the table.
 </p>
 </div>
 
-</article>
+<div class="products" id="productGrid"></div>
 
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5972.jpeg" alt="Crooked Gate No. 03 Butcher's Blend label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 03</div>
-<h3>Butcher's Blend</h3>
-<p>
-Good on steak, burgers, pork, potatoes and vegetables.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5971.jpeg" alt="Crooked Gate No. 04 Smokehouse Rub label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 04</div>
-<h3>Smokehouse Rub</h3>
-<p>
-Good on pork, chicken, ribs, potatoes and grilled vegetables.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5970.jpeg" alt="Crooked Gate No. 05 BBQ Rub label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 05</div>
-<h3>BBQ Rub</h3>
-<p>
-Good on chicken, pork, burgers, ribs and roasted vegetables.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5969.jpeg" alt="Crooked Gate No. 06 Taco label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 06</div>
-<h3>Taco</h3>
-<p>
-Good in tacos, ground beef, chicken, rice and beans.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5968.jpeg" alt="Crooked Gate No. 07 Fajitas label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 07</div>
-<h3>Fajitas</h3>
-<p>
-Good with chicken, steak, peppers, onions and rice.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5967.jpeg" alt="Crooked Gate No. 08 Mom's Spaghetti label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 08</div>
-<h3>Mom's Spaghetti</h3>
-<p>
-Made for pasta, meat sauce, meatballs and garlic bread.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5966.jpeg" alt="Crooked Gate No. 09 Italian Seasoning label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 09</div>
-<h3>Italian Seasoning</h3>
-<p>
-Good in pasta, vegetables, chicken, bread and marinades.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5965.jpeg" alt="Crooked Gate No. 10 Garlic Salt label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 10</div>
-<h3>Garlic Salt</h3>
-<p>
-Good on potatoes, vegetables, eggs, chicken and everyday cooking.
-</p>
-</div>
-
-</article>
-
-
-<article class="product">
-
-<div class="label-frame">
-<img src="IMG_5964.jpeg" alt="Crooked Gate No. 11 Homestead Blend label">
-</div>
-
-<div class="product-meta">
-<div class="number">No. 11</div>
-<h3>Homestead Blend</h3>
-<p>
-Good on meat, potatoes, vegetables, soups and everyday meals.
-</p>
-</div>
-
-</article>
-
-
-</div>
 </div>
 </section>
 
 
 <section class="story" id="story">
-
 <div class="wrap story-grid">
 
 <div>
-
-<div class="eyebrow">
-Our Story
-</div>
-
-<h2>
-Made for the Table.
-</h2>
+<div class="eyebrow">Our Story</div>
+<h2>Made for the Table.</h2>
 
 <p>
-Some recipes are written down.
-Some are remembered.
+Some recipes are written down. Some are remembered.
 And some become the meals everybody asks you to make again.
 </p>
 
@@ -744,22 +906,15 @@ And some become the meals everybody asks you to make again.
 Crooked Gate is a collection of small-batch seasoning blends
 made for real kitchens, shared meals, and recipes worth keeping.
 </p>
-
 </div>
 
-
 <div class="story-note">
-
-<strong>
-From Our Table
-</strong>
+<strong>From Our Table</strong>
 
 <p>
-Start with the blend, find something good to make,
-and make it your own. As the collection grows,
-so will the recipes and meal ideas that go with each number.
+Start with the blend, find something good to make, and make it your own.
+As the collection grows, so will the recipes and meal ideas that go with each number.
 </p>
-
 </div>
 
 </div>
@@ -767,48 +922,21 @@ so will the recipes and meal ideas that go with each number.
 
 
 <section class="values">
-
 <div class="wrap value-grid">
 
 <div class="value">
-
-<h3>
-Simple Ingredients
-</h3>
-
-<p>
-Thoughtfully blended seasonings made to make
-everyday cooking easier.
-</p>
-
+<h3>Simple Ingredients</h3>
+<p>Thoughtfully blended seasonings made to make everyday cooking easier.</p>
 </div>
 
-
 <div class="value">
-
-<h3>
-Small Batch
-</h3>
-
-<p>
-Family crafted in small batches with attention
-to every blend.
-</p>
-
+<h3>Small Batch</h3>
+<p>Family crafted in small batches with attention to every blend.</p>
 </div>
 
-
 <div class="value">
-
-<h3>
-Big Flavor
-</h3>
-
-<p>
-Made for the meals your family already loves
-and the recipes still to come.
-</p>
-
+<h3>Big Flavor</h3>
+<p>Made for the meals your family already loves and the recipes still to come.</p>
 </div>
 
 </div>
@@ -816,26 +944,16 @@ and the recipes still to come.
 
 
 <section class="recipe-section" id="ranch-recipe">
-
 <div class="wrap">
 
 <div class="recipe-head">
-
-<div class="eyebrow">
-From Our Table · No. 01 Ranch
-</div>
-
-<h2>
-Ranch Burgers & Fries
-</h2>
-
+<div class="eyebrow">From Our Table · No. 01 Ranch</div>
+<h2>Ranch Burgers &amp; Fries</h2>
 <p>
 A simple burger-and-fries dinner seasoned with
 Crooked Gate No. 01 Ranch from the patties to the potatoes.
 </p>
-
 </div>
-
 
 <img
 class="food-hero"
@@ -843,14 +961,10 @@ src="1000019193.jpeg"
 alt="Crooked Gate Ranch burger with seasoned fries"
 >
 
-
 <div class="recipe-layout">
 
 <div>
-
-<h3>
-You'll Need
-</h3>
+<h3>You'll Need</h3>
 
 <ul>
 <li>Ground beef</li>
@@ -862,85 +976,37 @@ You'll Need
 <li>Your favorite burger toppings</li>
 </ul>
 
-
 <div class="callout">
-
-<strong>
-Make It Yours
-</strong>
-
+<strong>Make It Yours</strong>
 <p>
 Serve it on a toasted bun or wrap it in crisp lettuce.
 Add avocado, pickles, peppers, onions, or whatever
 your family likes on a burger.
 </p>
-
 </div>
-
 </div>
-
 
 <div>
-
-<h3>
-Make It Like We Do
-</h3>
+<h3>Make It Like We Do</h3>
 
 <ol>
-
-<li>
-<strong>Prep the fries.</strong>
-Cut the potatoes into fries, toss lightly with oil,
-and season generously with Crooked Gate No. 01 Ranch.
-</li>
-
-<li>
-<strong>Cook until crisp.</strong>
-Air fry or bake until the potatoes are browned on the edges
-and tender inside.
-</li>
-
-<li>
-<strong>Season the burgers.</strong>
-Form the ground beef into patties and season both sides
-with Crooked Gate No. 01 Ranch.
-</li>
-
-<li>
-<strong>Cook the patties.</strong>
-Pan cook or grill to your preferred doneness.
-Add cheese near the end if you want it.
-</li>
-
-<li>
-<strong>Build and serve.</strong>
-Add your favorite toppings and serve with
-the Ranch-seasoned fries.
-</li>
-
+<li><strong>Prep the fries.</strong> Cut the potatoes into fries, toss lightly with oil, and season generously with Crooked Gate No. 01 Ranch.</li>
+<li><strong>Cook until crisp.</strong> Air fry or bake until the potatoes are browned on the edges and tender inside.</li>
+<li><strong>Season the burgers.</strong> Form the ground beef into patties and season both sides with Crooked Gate No. 01 Ranch.</li>
+<li><strong>Cook the patties.</strong> Pan cook or grill to your preferred doneness. Add cheese near the end if you want it.</li>
+<li><strong>Build and serve.</strong> Add your favorite toppings and serve with the Ranch-seasoned fries.</li>
 </ol>
-
 </div>
 
 </div>
-
 
 <div class="gallery">
 
-<img
-src="1000019188.jpeg"
-alt="Crooked Gate Ranch seasoned burger patties cooking"
->
+<img src="1000019188.jpeg" alt="Crooked Gate Ranch seasoned burger patties cooking">
 
-<img
-src="1000019189.jpeg"
-alt="Potatoes seasoned with Crooked Gate Ranch"
->
+<img src="1000019189.jpeg" alt="Potatoes seasoned with Crooked Gate Ranch">
 
-<img
-src="1000019190.jpeg"
-alt="Finished Crooked Gate Ranch burger and fries"
->
+<img src="1000019190.jpeg" alt="Finished Crooked Gate Ranch burger and fries">
 
 </div>
 
@@ -951,16 +1017,524 @@ alt="Finished Crooked Gate Ranch burger and fries"
 
 
 <footer>
-
-<strong>
-Every Family Recipe Has to Start Somewhere.
-</strong>
-
+<strong>Every Family Recipe Has to Start Somewhere.</strong>
 <br>
-
 Crooked Gate Seasonings · Family Crafted · Small Batch
-
 </footer>
+
+
+<!-- PANTRY DRAWER -->
+
+<div class="pantry-overlay" id="pantryOverlay" onclick="closePantry()"></div>
+
+<aside class="pantry-drawer" id="pantryDrawer">
+
+<div class="pantry-header">
+
+<button class="close-pantry" onclick="closePantry()" aria-label="Close Pantry">
+×
+</button>
+
+<div class="eyebrow">Crooked Gate Seasonings</div>
+
+<h2>Your Pantry</h2>
+
+<div class="pantry-message" id="pantryMessage">
+The pantry's empty.
+</div>
+
+</div>
+
+<div class="pantry-items" id="pantryItems"></div>
+
+<div class="pantry-footer">
+
+<div class="pantry-total">
+<span>Pantry Total</span>
+<strong id="pantryTotal">$0.00</strong>
+</div>
+
+<button class="checkout-button" onclick="checkoutComingSoon()">
+Head to Checkout →
+</button>
+
+<button class="keep-shopping" onclick="closePantry()">
+Keep Stocking the Pantry
+</button>
+
+<p class="checkout-note">
+Online checkout is coming soon.
+</p>
+
+</div>
+
+</aside>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+const products = [
+  {
+    id: "ranch",
+    number: "01",
+    name: "Ranch",
+    image: "IMG_5974.jpeg",
+    description: "Good on burgers, fries, potatoes, chicken and vegetables.",
+    recipe: "Ranch Burgers & Fries",
+    recipeLink: "#ranch-recipe"
+  },
+  {
+    id: "poultry",
+    number: "02",
+    name: "Poultry Rub",
+    image: "IMG_5973.jpeg",
+    description: "Good on chicken, turkey, potatoes and roasted vegetables."
+  },
+  {
+    id: "butchers",
+    number: "03",
+    name: "Butcher's Blend",
+    image: "IMG_5972.jpeg",
+    description: "Good on steak, burgers, pork, potatoes and vegetables."
+  },
+  {
+    id: "smokehouse",
+    number: "04",
+    name: "Smokehouse Rub",
+    image: "IMG_5971.jpeg",
+    description: "Good on pork, chicken, ribs, potatoes and grilled vegetables."
+  },
+  {
+    id: "bbq",
+    number: "05",
+    name: "BBQ Rub",
+    image: "IMG_5970.jpeg",
+    description: "Good on chicken, pork, burgers, ribs and roasted vegetables."
+  },
+  {
+    id: "taco",
+    number: "06",
+    name: "Taco",
+    image: "IMG_5969.jpeg",
+    description: "Good in tacos, ground beef, chicken, rice and beans."
+  },
+  {
+    id: "fajitas",
+    number: "07",
+    name: "Fajitas",
+    image: "IMG_5968.jpeg",
+    description: "Good with chicken, steak, peppers, onions and rice."
+  },
+  {
+    id: "spaghetti",
+    number: "08",
+    name: "Mom's Spaghetti",
+    image: "IMG_5967.jpeg",
+    description: "Made for pasta, meat sauce, meatballs and garlic bread."
+  },
+  {
+    id: "italian",
+    number: "09",
+    name: "Italian Seasoning",
+    image: "IMG_5966.jpeg",
+    description: "Good in pasta, vegetables, chicken, bread and marinades."
+  },
+  {
+    id: "garlic",
+    number: "10",
+    name: "Garlic Salt",
+    image: "IMG_5965.jpeg",
+    description: "Good on potatoes, vegetables, eggs, chicken and everyday cooking."
+  },
+  {
+    id: "homestead",
+    number: "11",
+    name: "Homestead Blend",
+    image: "IMG_5964.jpeg",
+    description: "Good on meat, potatoes, vegetables, soups and everyday meals."
+  }
+];
+
+const sizes = {
+  "2 oz": 6,
+  "8 oz": 20
+};
+
+let selectedSizes = {};
+let cart = JSON.parse(localStorage.getItem("crookedGatePantry")) || [];
+
+
+/* BUILD PRODUCTS */
+
+function renderProducts() {
+
+  const grid = document.getElementById("productGrid");
+
+  grid.innerHTML = products.map(product => {
+
+    selectedSizes[product.id] = selectedSizes[product.id] || "2 oz";
+
+    const recipeHTML = product.recipe
+      ? `<a class="recipe-link" href="${product.recipeLink}">View ${product.recipe} →</a>`
+      : "";
+
+    return `
+      <article class="product">
+
+        <div class="label-frame">
+          <img src="${product.image}" alt="Crooked Gate No. ${product.number} ${product.name} label">
+        </div>
+
+        <div class="product-meta">
+
+          <div class="number">No. ${product.number}</div>
+
+          <h3>${product.name}</h3>
+
+          <p>${product.description}</p>
+
+          ${recipeHTML}
+
+          <div class="buy-box">
+
+            <span class="choose-label">Choose Your Bag</span>
+
+            <div class="size-options">
+
+              <button
+                class="size-button selected"
+                data-product="${product.id}"
+                data-size="2 oz"
+                onclick="selectSize('${product.id}', '2 oz', this)"
+              >
+                2 OZ · $6
+              </button>
+
+              <button
+                class="size-button"
+                data-product="${product.id}"
+                data-size="8 oz"
+                onclick="selectSize('${product.id}', '8 oz', this)"
+              >
+                8 OZ · $20
+              </button>
+
+            </div>
+
+            <button
+              class="add-pantry"
+              onclick="addToPantry('${product.id}', this)"
+            >
+              Add to Pantry
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+}
+
+
+/* SIZE SELECTOR */
+
+function selectSize(productId, size, button) {
+
+  selectedSizes[productId] = size;
+
+  document
+    .querySelectorAll(`.size-button[data-product="${productId}"]`)
+    .forEach(btn => btn.classList.remove("selected"));
+
+  button.classList.add("selected");
+}
+
+
+/* ADD TO PANTRY */
+
+function addToPantry(productId, button) {
+
+  const product = products.find(p => p.id === productId);
+  const size = selectedSizes[productId] || "2 oz";
+  const price = sizes[size];
+
+  const existing = cart.find(
+    item => item.id === productId && item.size === size
+  );
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      number: product.number,
+      name: product.name,
+      size: size,
+      price: price,
+      quantity: 1,
+      recipe: product.recipe || null,
+      recipeLink: product.recipeLink || null
+    });
+  }
+
+  saveCart();
+  renderPantry();
+
+  button.classList.add("added");
+  button.textContent = "✓ Added to Pantry";
+
+  setTimeout(() => {
+    button.classList.remove("added");
+    button.textContent = "Add to Pantry";
+  }, 1000);
+
+  showToast(`✓ No. ${product.number} ${product.name} added to the pantry.`);
+
+  const pantryButton = document.getElementById("pantryButton");
+
+  pantryButton.classList.remove("bump");
+  void pantryButton.offsetWidth;
+  pantryButton.classList.add("bump");
+}
+
+
+/* SAVE */
+
+function saveCart() {
+  localStorage.setItem("crookedGatePantry", JSON.stringify(cart));
+}
+
+
+/* CART COUNT */
+
+function cartQuantity() {
+  return cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+
+/* PANTRY MESSAGE */
+
+function getPantryMessage(count) {
+
+  if (count === 0) return "The pantry's empty.";
+  if (count === 1) return "Good start.";
+  if (count < 5) return "The pantry's filling up.";
+
+  return "Now we're cooking.";
+}
+
+
+/* RENDER PANTRY */
+
+function renderPantry() {
+
+  const container = document.getElementById("pantryItems");
+
+  const count = cartQuantity();
+
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("pantryMessage").textContent = getPantryMessage(count);
+
+  if (cart.length === 0) {
+
+    container.innerHTML = `
+      <div class="empty-pantry">
+        <h3>The Pantry's Empty</h3>
+        <p>
+          Pick a Family Recipe and start stocking the shelves.
+        </p>
+      </div>
+    `;
+
+  } else {
+
+    container.innerHTML = cart.map((item, index) => {
+
+      const recipe = item.recipe
+        ? `
+          <div class="pantry-recipe">
+            <span>From Our Table</span>
+            <a href="${item.recipeLink}" onclick="closePantry()">
+              ${item.recipe} →
+            </a>
+          </div>
+        `
+        : "";
+
+      return `
+        <div class="pantry-item">
+
+          <div class="pantry-item-top">
+
+            <div>
+              <div class="pantry-item-number">
+                No. ${item.number}
+              </div>
+
+              <h3>${item.name}</h3>
+
+              <div class="pantry-item-size">
+                ${item.size} · $${item.price}
+              </div>
+            </div>
+
+            <div class="pantry-item-price">
+              $${(item.price * item.quantity).toFixed(2)}
+            </div>
+
+          </div>
+
+          <div class="pantry-controls">
+
+            <div class="qty-control">
+
+              <button
+                onclick="changeQuantity(${index}, -1)"
+                aria-label="Decrease quantity"
+              >
+                −
+              </button>
+
+              <span>${item.quantity}</span>
+
+              <button
+                onclick="changeQuantity(${index}, 1)"
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="remove-item"
+              onclick="removeItem(${index})"
+            >
+              Remove
+            </button>
+
+          </div>
+
+          ${recipe}
+
+        </div>
+      `;
+
+    }).join("");
+  }
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  document.getElementById("pantryTotal").textContent =
+    `$${total.toFixed(2)}`;
+}
+
+
+/* QUANTITY */
+
+function changeQuantity(index, amount) {
+
+  cart[index].quantity += amount;
+
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
+  saveCart();
+  renderPantry();
+}
+
+
+/* REMOVE */
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  saveCart();
+  renderPantry();
+}
+
+
+/* OPEN / CLOSE */
+
+function openPantry() {
+
+  document.getElementById("pantryDrawer").classList.add("open");
+  document.getElementById("pantryOverlay").classList.add("open");
+
+  document.body.classList.add("pantries-open");
+}
+
+function closePantry() {
+
+  document.getElementById("pantryDrawer").classList.remove("open");
+  document.getElementById("pantryOverlay").classList.remove("open");
+
+  document.body.classList.remove("pantries-open");
+}
+
+
+/* TOAST */
+
+let toastTimer;
+
+function showToast(message) {
+
+  const toast = document.getElementById("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1800);
+}
+
+
+/* CHECKOUT PREVIEW */
+
+function checkoutComingSoon() {
+
+  if (cart.length === 0) {
+    showToast("The pantry's empty.");
+    return;
+  }
+
+  const button = document.querySelector(".checkout-button");
+  const original = button.textContent;
+
+  button.textContent = "Gathering everything from the pantry...";
+
+  setTimeout(() => {
+
+    button.textContent = "Checkout Coming Soon";
+
+    setTimeout(() => {
+      button.textContent = original;
+    }, 1600);
+
+  }, 700);
+}
+
+
+/* START */
+
+renderProducts();
+renderPantry();
+
+</script>
 
 </body>
 </html>
