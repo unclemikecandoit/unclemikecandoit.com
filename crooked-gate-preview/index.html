@@ -16,9 +16,13 @@
   --line: #baa990;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -120,7 +124,9 @@ header {
 }
 
 @keyframes pantryBump {
-  50% { transform: scale(1.08); }
+  50% {
+    transform: scale(1.08);
+  }
 }
 
 .hero {
@@ -149,7 +155,9 @@ header {
   color: var(--muted);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
   letter-spacing: .02em;
@@ -328,8 +336,214 @@ h1 {
   color: var(--cream);
 }
 
-.story {
+/* WHAT'S FOR DINNER */
+
+.dinner {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 76px 0;
+  background: var(--cream2);
+}
+
+.dinner-heading {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 44px;
+}
+
+.dinner-heading h2 {
+  font-size: clamp(52px, 7vw, 92px);
+  line-height: .92;
+  margin: 7px 0 14px;
+}
+
+.dinner-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.dinner-feature {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+}
+
+.dinner-photo {
+  min-height: 560px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dinner-copy {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dinner-copy h3 {
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: .94;
+  margin: 9px 0 14px;
+}
+
+.meal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 4px 0 20px;
+}
+
+.meal-tag {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 8px 10px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.dinner-copy > p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+.made-with {
+  margin-top: 26px;
+  padding-top: 20px;
   border-top: 1px solid var(--line);
+}
+
+.made-with-label {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--muted);
+}
+
+.made-with strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.dinner-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.dinner-action {
+  border: 1px solid var(--ink);
+  min-height: 48px;
+  padding: 13px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.dinner-action.primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.dinner-action.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.dinner-action.added {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.dinner-system {
+  margin-top: 52px;
+}
+
+.dinner-system-head {
+  max-width: 740px;
+  margin-bottom: 26px;
+}
+
+.dinner-system-head h3 {
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: .95;
+  margin: 6px 0 10px;
+}
+
+.dinner-system-head p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.dinner-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.dinner-category {
+  padding: 30px 26px;
+  min-height: 205px;
+}
+
+.dinner-category + .dinner-category {
+  border-left: 1px solid var(--ink);
+}
+
+.dinner-category .category-number {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 50px;
+  line-height: .9;
+}
+
+.dinner-category h3 {
+  margin: 13px 0 8px;
+  font-size: 29px;
+}
+
+.dinner-category p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.coming-label {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+
+.story {
   border-bottom: 1px solid var(--line);
   padding: 58px 0;
 }
@@ -651,30 +865,6 @@ footer {
   text-transform: uppercase;
 }
 
-.pantry-recipe {
-  margin-top: 16px;
-  padding: 12px 14px;
-  background: var(--cream2);
-  border-left: 2px solid var(--ink);
-}
-
-.pantry-recipe span {
-  display: block;
-  margin-bottom: 4px;
-  font-family: Arial, sans-serif;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.pantry-recipe a {
-  font-weight: bold;
-  font-size: 14px;
-  border-bottom: 1px solid var(--ink);
-}
-
 .pantry-footer {
   padding: 20px 22px 24px;
   border-top: 1px solid var(--ink);
@@ -756,9 +946,11 @@ footer {
 }
 
 @media (max-width: 900px) {
+
   .hero-grid,
   .story-grid,
-  .recipe-layout {
+  .recipe-layout,
+  .dinner-feature {
     grid-template-columns: 1fr;
   }
 
@@ -782,9 +974,24 @@ footer {
   .navlinks {
     display: none;
   }
+
+  .dinner-photo {
+    min-height: 0;
+    max-height: 650px;
+  }
+
+  .dinner-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .dinner-category + .dinner-category {
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+  }
 }
 
 @media (max-width: 620px) {
+
   .brand {
     font-size: 18px;
   }
@@ -805,6 +1012,18 @@ footer {
   .product {
     max-width: 470px;
     margin: 0 auto;
+  }
+
+  .dinner {
+    padding: 58px 0;
+  }
+
+  .dinner-copy {
+    padding: 30px 23px;
+  }
+
+  .dinner-actions {
+    grid-template-columns: 1fr;
   }
 
   .value-grid {
@@ -831,14 +1050,17 @@ Family Crafted · Small Batch · Big Flavor
 <header>
 <div class="wrap nav">
 
-<a href="#" class="brand">Crooked Gate Seasonings</a>
+<a href="#" class="brand">
+Crooked Gate Seasonings
+</a>
 
 <div class="nav-right">
 
 <nav class="navlinks">
 <a href="#recipes">Family Recipes</a>
-<a href="#story">Our Story</a>
+<a href="#dinner">What's for Dinner?</a>
 <a href="#ranch-recipe">From Our Table</a>
+<a href="#story">Our Story</a>
 </nav>
 
 <button class="pantry-button" id="pantryButton" onclick="openPantry()">
@@ -851,37 +1073,59 @@ The Pantry · <span id="cartCount">0</span>
 
 <main>
 
+
 <section class="hero">
+
 <div class="wrap hero-grid">
 
-<img class="hero-logo" src="IMG_5975.jpeg" alt="Crooked Gate Seasonings logo">
+<img
+class="hero-logo"
+src="IMG_5975.jpeg"
+alt="Crooked Gate Seasonings logo"
+>
 
 <div>
-<div class="eyebrow">Crooked Gate Seasonings</div>
 
-<h1>Every Family Recipe Has to Start Somewhere.</h1>
+<div class="eyebrow">
+Crooked Gate Seasonings
+</div>
+
+<h1>
+Every Family Recipe Has to Start Somewhere.
+</h1>
 
 <p>
 Small-batch seasoning blends made for real kitchens,
 shared meals, and recipes worth keeping.
 </p>
 
-<a class="button" href="#recipes">Explore the Family Recipes</a>
-</div>
+<a class="button" href="#recipes">
+Explore the Family Recipes
+</a>
 
+</div>
 </div>
 </section>
 
 
 <section class="collection" id="recipes">
+
 <div class="wrap">
 
 <div class="section-head">
-<div class="eyebrow">The Collection</div>
-<h2>The Family Recipes</h2>
+
+<div class="eyebrow">
+The Collection
+</div>
+
+<h2>
+The Family Recipes
+</h2>
+
 <p>
 Every bag has a number. Every number has a place at the table.
 </p>
+
 </div>
 
 <div class="products" id="productGrid"></div>
@@ -890,12 +1134,210 @@ Every bag has a number. Every number has a place at the table.
 </section>
 
 
+<section class="dinner" id="dinner">
+
+<div class="wrap">
+
+<div class="dinner-heading">
+
+<div class="eyebrow">
+Crooked Gate Meal Ideas
+</div>
+
+<h2>
+What's for Dinner?
+</h2>
+
+<p>
+Start with a meal, find the blend that brings it together,
+and get dinner on the table without overthinking it.
+</p>
+
+</div>
+
+
+<div class="dinner-feature">
+
+<img
+class="dinner-photo"
+src="1000019193.jpeg"
+alt="Crooked Gate Ranch burger with seasoned fries"
+>
+
+<div class="dinner-copy">
+
+<div class="eyebrow">
+From Our Table · No. 01 Ranch
+</div>
+
+<h3>
+Ranch Burgers &amp; Fries
+</h3>
+
+<div class="meal-tags">
+
+<span class="meal-tag">
+30 Min
+</span>
+
+<span class="meal-tag">
+Feeds 4
+</span>
+
+<span class="meal-tag">
+No. 01 Ranch
+</span>
+
+</div>
+
+<p>
+Ranch-seasoned burgers and crispy seasoned fries,
+served on a bun or wrapped in crisp lettuce.
+Simple, flexible, and built for a weeknight.
+</p>
+
+<div class="made-with">
+
+<span class="made-with-label">
+Made With
+</span>
+
+<strong>
+Crooked Gate No. 01 Ranch
+</strong>
+
+</div>
+
+<div class="dinner-actions">
+
+<a
+class="dinner-action primary"
+href="#ranch-recipe"
+>
+View Full Recipe →
+</a>
+
+<button
+class="dinner-action secondary"
+id="dinnerAddRanch"
+onclick="addRanchFromDinner(this)"
+>
+Add No. 01 to Pantry
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<div class="dinner-system">
+
+<div class="dinner-system-head">
+
+<div class="eyebrow">
+Dinner, Simplified
+</div>
+
+<h3>
+Pick the Kind of Night You're Having.
+</h3>
+
+<p>
+As the Crooked Gate recipe collection grows, these will become
+easy ways to find exactly the kind of meal you need.
+</p>
+
+</div>
+
+
+<div class="dinner-categories">
+
+<div class="dinner-category">
+
+<div class="category-number">
+30 / 30
+</div>
+
+<h3>
+30 Minutes. Around $30.
+</h3>
+
+<p>
+Family dinner without losing the whole evening or the whole grocery budget.
+</p>
+
+<span class="coming-label">
+Recipes Coming Soon
+</span>
+
+</div>
+
+
+<div class="dinner-category">
+
+<div class="category-number">
+Quick
+</div>
+
+<h3>
+Quick Ones
+</h3>
+
+<p>
+For nights when dinner needed to happen already.
+Straightforward meals with very little fuss.
+</p>
+
+<span class="coming-label">
+Recipes Coming Soon
+</span>
+
+</div>
+
+
+<div class="dinner-category">
+
+<div class="category-number">
+1 Pan
+</div>
+
+<h3>
+One Pan
+</h3>
+
+<p>
+Less cleanup, fewer dishes, and still enough flavor
+to make it feel like an actual dinner.
+</p>
+
+<span class="coming-label">
+Recipes Coming Soon
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
 <section class="story" id="story">
+
 <div class="wrap story-grid">
 
 <div>
-<div class="eyebrow">Our Story</div>
-<h2>Made for the Table.</h2>
+
+<div class="eyebrow">
+Our Story
+</div>
+
+<h2>
+Made for the Table.
+</h2>
 
 <p>
 Some recipes are written down. Some are remembered.
@@ -906,15 +1348,22 @@ And some become the meals everybody asks you to make again.
 Crooked Gate is a collection of small-batch seasoning blends
 made for real kitchens, shared meals, and recipes worth keeping.
 </p>
+
 </div>
 
+
 <div class="story-note">
-<strong>From Our Table</strong>
+
+<strong>
+From Our Table
+</strong>
 
 <p>
-Start with the blend, find something good to make, and make it your own.
-As the collection grows, so will the recipes and meal ideas that go with each number.
+Start with the blend, find something good to make,
+and make it your own. As the collection grows,
+so will the recipes and meal ideas that go with each number.
 </p>
+
 </div>
 
 </div>
@@ -922,21 +1371,45 @@ As the collection grows, so will the recipes and meal ideas that go with each nu
 
 
 <section class="values">
+
 <div class="wrap value-grid">
 
 <div class="value">
-<h3>Simple Ingredients</h3>
-<p>Thoughtfully blended seasonings made to make everyday cooking easier.</p>
+
+<h3>
+Simple Ingredients
+</h3>
+
+<p>
+Thoughtfully blended seasonings made to make everyday cooking easier.
+</p>
+
 </div>
 
-<div class="value">
-<h3>Small Batch</h3>
-<p>Family crafted in small batches with attention to every blend.</p>
-</div>
 
 <div class="value">
-<h3>Big Flavor</h3>
-<p>Made for the meals your family already loves and the recipes still to come.</p>
+
+<h3>
+Small Batch
+</h3>
+
+<p>
+Family crafted in small batches with attention to every blend.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<h3>
+Big Flavor
+</h3>
+
+<p>
+Made for the meals your family already loves and the recipes still to come.
+</p>
+
 </div>
 
 </div>
@@ -944,16 +1417,26 @@ As the collection grows, so will the recipes and meal ideas that go with each nu
 
 
 <section class="recipe-section" id="ranch-recipe">
+
 <div class="wrap">
 
 <div class="recipe-head">
-<div class="eyebrow">From Our Table · No. 01 Ranch</div>
-<h2>Ranch Burgers &amp; Fries</h2>
+
+<div class="eyebrow">
+From Our Table · No. 01 Ranch
+</div>
+
+<h2>
+Ranch Burgers &amp; Fries
+</h2>
+
 <p>
 A simple burger-and-fries dinner seasoned with
 Crooked Gate No. 01 Ranch from the patties to the potatoes.
 </p>
+
 </div>
+
 
 <img
 class="food-hero"
@@ -961,10 +1444,14 @@ src="1000019193.jpeg"
 alt="Crooked Gate Ranch burger with seasoned fries"
 >
 
+
 <div class="recipe-layout">
 
 <div>
-<h3>You'll Need</h3>
+
+<h3>
+You'll Need
+</h3>
 
 <ul>
 <li>Ground beef</li>
@@ -976,37 +1463,85 @@ alt="Crooked Gate Ranch burger with seasoned fries"
 <li>Your favorite burger toppings</li>
 </ul>
 
+
 <div class="callout">
-<strong>Make It Yours</strong>
+
+<strong>
+Make It Yours
+</strong>
+
 <p>
 Serve it on a toasted bun or wrap it in crisp lettuce.
 Add avocado, pickles, peppers, onions, or whatever
 your family likes on a burger.
 </p>
+
 </div>
+
 </div>
+
 
 <div>
-<h3>Make It Like We Do</h3>
+
+<h3>
+Make It Like We Do
+</h3>
 
 <ol>
-<li><strong>Prep the fries.</strong> Cut the potatoes into fries, toss lightly with oil, and season generously with Crooked Gate No. 01 Ranch.</li>
-<li><strong>Cook until crisp.</strong> Air fry or bake until the potatoes are browned on the edges and tender inside.</li>
-<li><strong>Season the burgers.</strong> Form the ground beef into patties and season both sides with Crooked Gate No. 01 Ranch.</li>
-<li><strong>Cook the patties.</strong> Pan cook or grill to your preferred doneness. Add cheese near the end if you want it.</li>
-<li><strong>Build and serve.</strong> Add your favorite toppings and serve with the Ranch-seasoned fries.</li>
+
+<li>
+<strong>Prep the fries.</strong>
+Cut the potatoes into fries, toss lightly with oil,
+and season generously with Crooked Gate No. 01 Ranch.
+</li>
+
+<li>
+<strong>Cook until crisp.</strong>
+Air fry or bake until the potatoes are browned on the edges
+and tender inside.
+</li>
+
+<li>
+<strong>Season the burgers.</strong>
+Form the ground beef into patties and season both sides
+with Crooked Gate No. 01 Ranch.
+</li>
+
+<li>
+<strong>Cook the patties.</strong>
+Pan cook or grill to your preferred doneness.
+Add cheese near the end if you want it.
+</li>
+
+<li>
+<strong>Build and serve.</strong>
+Add your favorite toppings and serve with
+the Ranch-seasoned fries.
+</li>
+
 </ol>
+
 </div>
 
 </div>
+
 
 <div class="gallery">
 
-<img src="1000019188.jpeg" alt="Crooked Gate Ranch seasoned burger patties cooking">
+<img
+src="1000019188.jpeg"
+alt="Crooked Gate Ranch seasoned burger patties cooking"
+>
 
-<img src="1000019189.jpeg" alt="Potatoes seasoned with Crooked Gate Ranch">
+<img
+src="1000019189.jpeg"
+alt="Potatoes seasoned with Crooked Gate Ranch"
+>
 
-<img src="1000019190.jpeg" alt="Finished Crooked Gate Ranch burger and fries">
+<img
+src="1000019190.jpeg"
+alt="Finished Crooked Gate Ranch burger and fries"
+>
 
 </div>
 
@@ -1017,50 +1552,94 @@ your family likes on a burger.
 
 
 <footer>
-<strong>Every Family Recipe Has to Start Somewhere.</strong>
+
+<strong>
+Every Family Recipe Has to Start Somewhere.
+</strong>
+
 <br>
+
 Crooked Gate Seasonings · Family Crafted · Small Batch
+
 </footer>
 
 
-<!-- PANTRY DRAWER -->
+<div
+class="pantry-overlay"
+id="pantryOverlay"
+onclick="closePantry()"
+></div>
 
-<div class="pantry-overlay" id="pantryOverlay" onclick="closePantry()"></div>
 
-<aside class="pantry-drawer" id="pantryDrawer">
+<aside
+class="pantry-drawer"
+id="pantryDrawer"
+>
 
 <div class="pantry-header">
 
-<button class="close-pantry" onclick="closePantry()" aria-label="Close Pantry">
+<button
+class="close-pantry"
+onclick="closePantry()"
+aria-label="Close Pantry"
+>
 ×
 </button>
 
-<div class="eyebrow">Crooked Gate Seasonings</div>
+<div class="eyebrow">
+Crooked Gate Seasonings
+</div>
 
-<h2>Your Pantry</h2>
+<h2>
+Your Pantry
+</h2>
 
-<div class="pantry-message" id="pantryMessage">
+<div
+class="pantry-message"
+id="pantryMessage"
+>
 The pantry's empty.
 </div>
 
 </div>
 
-<div class="pantry-items" id="pantryItems"></div>
+
+<div
+class="pantry-items"
+id="pantryItems"
+></div>
+
 
 <div class="pantry-footer">
 
 <div class="pantry-total">
-<span>Pantry Total</span>
-<strong id="pantryTotal">$0.00</strong>
+
+<span>
+Pantry Total
+</span>
+
+<strong id="pantryTotal">
+$0.00
+</strong>
+
 </div>
 
-<button class="checkout-button" onclick="checkoutComingSoon()">
+
+<button
+class="checkout-button"
+onclick="checkoutComingSoon()"
+>
 Head to Checkout →
 </button>
 
-<button class="keep-shopping" onclick="closePantry()">
+
+<button
+class="keep-shopping"
+onclick="closePantry()"
+>
 Keep Stocking the Pantry
 </button>
+
 
 <p class="checkout-note">
 Online checkout is coming soon.
@@ -1071,12 +1650,16 @@ Online checkout is coming soon.
 </aside>
 
 
-<div class="toast" id="toast"></div>
+<div
+class="toast"
+id="toast"
+></div>
 
 
 <script>
 
 const products = [
+
   {
     id: "ranch",
     number: "01",
@@ -1086,6 +1669,7 @@ const products = [
     recipe: "Ranch Burgers & Fries",
     recipeLink: "#ranch-recipe"
   },
+
   {
     id: "poultry",
     number: "02",
@@ -1093,6 +1677,7 @@ const products = [
     image: "IMG_5973.jpeg",
     description: "Good on chicken, turkey, potatoes and roasted vegetables."
   },
+
   {
     id: "butchers",
     number: "03",
@@ -1100,6 +1685,7 @@ const products = [
     image: "IMG_5972.jpeg",
     description: "Good on steak, burgers, pork, potatoes and vegetables."
   },
+
   {
     id: "smokehouse",
     number: "04",
@@ -1107,6 +1693,7 @@ const products = [
     image: "IMG_5971.jpeg",
     description: "Good on pork, chicken, ribs, potatoes and grilled vegetables."
   },
+
   {
     id: "bbq",
     number: "05",
@@ -1114,6 +1701,7 @@ const products = [
     image: "IMG_5970.jpeg",
     description: "Good on chicken, pork, burgers, ribs and roasted vegetables."
   },
+
   {
     id: "taco",
     number: "06",
@@ -1121,6 +1709,7 @@ const products = [
     image: "IMG_5969.jpeg",
     description: "Good in tacos, ground beef, chicken, rice and beans."
   },
+
   {
     id: "fajitas",
     number: "07",
@@ -1128,6 +1717,7 @@ const products = [
     image: "IMG_5968.jpeg",
     description: "Good with chicken, steak, peppers, onions and rice."
   },
+
   {
     id: "spaghetti",
     number: "08",
@@ -1135,6 +1725,7 @@ const products = [
     image: "IMG_5967.jpeg",
     description: "Made for pasta, meat sauce, meatballs and garlic bread."
   },
+
   {
     id: "italian",
     number: "09",
@@ -1142,6 +1733,7 @@ const products = [
     image: "IMG_5966.jpeg",
     description: "Good in pasta, vegetables, chicken, bread and marinades."
   },
+
   {
     id: "garlic",
     number: "10",
@@ -1149,6 +1741,7 @@ const products = [
     image: "IMG_5965.jpeg",
     description: "Good on potatoes, vegetables, eggs, chicken and everyday cooking."
   },
+
   {
     id: "homestead",
     number: "11",
@@ -1156,89 +1749,126 @@ const products = [
     image: "IMG_5964.jpeg",
     description: "Good on meat, potatoes, vegetables, soups and everyday meals."
   }
+
 ];
+
 
 const sizes = {
   "2 oz": 6,
   "8 oz": 20
 };
 
+
 let selectedSizes = {};
-let cart = JSON.parse(localStorage.getItem("crookedGatePantry")) || [];
+
+let cart =
+  JSON.parse(localStorage.getItem("crookedGatePantry")) || [];
 
 
-/* BUILD PRODUCTS */
+/* BUILD PRODUCT COLLECTION */
 
 function renderProducts() {
 
-  const grid = document.getElementById("productGrid");
+  const grid =
+    document.getElementById("productGrid");
 
-  grid.innerHTML = products.map(product => {
+  grid.innerHTML =
+    products.map(product => {
 
-    selectedSizes[product.id] = selectedSizes[product.id] || "2 oz";
+      selectedSizes[product.id] =
+        selectedSizes[product.id] || "2 oz";
 
-    const recipeHTML = product.recipe
-      ? `<a class="recipe-link" href="${product.recipeLink}">View ${product.recipe} →</a>`
-      : "";
+      const recipeHTML =
+        product.recipe
+        ? `
+          <a
+            class="recipe-link"
+            href="${product.recipeLink}"
+          >
+            View ${product.recipe} →
+          </a>
+        `
+        : "";
 
-    return `
-      <article class="product">
+      return `
 
-        <div class="label-frame">
-          <img src="${product.image}" alt="Crooked Gate No. ${product.number} ${product.name} label">
-        </div>
+        <article class="product">
 
-        <div class="product-meta">
+          <div class="label-frame">
 
-          <div class="number">No. ${product.number}</div>
+            <img
+              src="${product.image}"
+              alt="Crooked Gate No. ${product.number} ${product.name} label"
+            >
 
-          <h3>${product.name}</h3>
+          </div>
 
-          <p>${product.description}</p>
 
-          ${recipeHTML}
+          <div class="product-meta">
 
-          <div class="buy-box">
+            <div class="number">
+              No. ${product.number}
+            </div>
 
-            <span class="choose-label">Choose Your Bag</span>
+            <h3>
+              ${product.name}
+            </h3>
 
-            <div class="size-options">
+            <p>
+              ${product.description}
+            </p>
+
+            ${recipeHTML}
+
+
+            <div class="buy-box">
+
+              <span class="choose-label">
+                Choose Your Bag
+              </span>
+
+
+              <div class="size-options">
+
+                <button
+                  class="size-button selected"
+                  data-product="${product.id}"
+                  data-size="2 oz"
+                  onclick="selectSize('${product.id}', '2 oz', this)"
+                >
+                  2 OZ · $6
+                </button>
+
+
+                <button
+                  class="size-button"
+                  data-product="${product.id}"
+                  data-size="8 oz"
+                  onclick="selectSize('${product.id}', '8 oz', this)"
+                >
+                  8 OZ · $20
+                </button>
+
+              </div>
+
 
               <button
-                class="size-button selected"
-                data-product="${product.id}"
-                data-size="2 oz"
-                onclick="selectSize('${product.id}', '2 oz', this)"
+                class="add-pantry"
+                onclick="addToPantry('${product.id}', this)"
               >
-                2 OZ · $6
-              </button>
-
-              <button
-                class="size-button"
-                data-product="${product.id}"
-                data-size="8 oz"
-                onclick="selectSize('${product.id}', '8 oz', this)"
-              >
-                8 OZ · $20
+                Add to Pantry
               </button>
 
             </div>
 
-            <button
-              class="add-pantry"
-              onclick="addToPantry('${product.id}', this)"
-            >
-              Add to Pantry
-            </button>
-
           </div>
 
-        </div>
+        </article>
 
-      </article>
-    `;
+      `;
 
-  }).join("");
+    }).join("");
+
 }
 
 
@@ -1246,75 +1876,166 @@ function renderProducts() {
 
 function selectSize(productId, size, button) {
 
-  selectedSizes[productId] = size;
+  selectedSizes[productId] =
+    size;
 
   document
-    .querySelectorAll(`.size-button[data-product="${productId}"]`)
-    .forEach(btn => btn.classList.remove("selected"));
+    .querySelectorAll(
+      `.size-button[data-product="${productId}"]`
+    )
+    .forEach(btn =>
+      btn.classList.remove("selected")
+    );
 
   button.classList.add("selected");
+
 }
 
 
-/* ADD TO PANTRY */
+/* UNIVERSAL PRODUCT ADD */
 
-function addToPantry(productId, button) {
+function addProductToCart(productId, size) {
 
-  const product = products.find(p => p.id === productId);
-  const size = selectedSizes[productId] || "2 oz";
-  const price = sizes[size];
+  const product =
+    products.find(
+      p => p.id === productId
+    );
 
-  const existing = cart.find(
-    item => item.id === productId && item.size === size
-  );
+  const price =
+    sizes[size];
+
+  const existing =
+    cart.find(
+      item =>
+        item.id === productId &&
+        item.size === size
+    );
 
   if (existing) {
+
     existing.quantity += 1;
+
   } else {
+
     cart.push({
+
       id: product.id,
       number: product.number,
       name: product.name,
       size: size,
       price: price,
-      quantity: 1,
-      recipe: product.recipe || null,
-      recipeLink: product.recipeLink || null
+      quantity: 1
+
     });
+
   }
 
   saveCart();
   renderPantry();
 
-  button.classList.add("added");
-  button.textContent = "✓ Added to Pantry";
-
-  setTimeout(() => {
-    button.classList.remove("added");
-    button.textContent = "Add to Pantry";
-  }, 1000);
-
-  showToast(`✓ No. ${product.number} ${product.name} added to the pantry.`);
-
-  const pantryButton = document.getElementById("pantryButton");
+  const pantryButton =
+    document.getElementById("pantryButton");
 
   pantryButton.classList.remove("bump");
+
   void pantryButton.offsetWidth;
+
   pantryButton.classList.add("bump");
+
+  return product;
+
 }
 
 
-/* SAVE */
+/* ADD FROM PRODUCT CARD */
+
+function addToPantry(productId, button) {
+
+  const size =
+    selectedSizes[productId] || "2 oz";
+
+  const product =
+    addProductToCart(
+      productId,
+      size
+    );
+
+  button.classList.add("added");
+
+  button.textContent =
+    "✓ Added to Pantry";
+
+  setTimeout(() => {
+
+    button.classList.remove("added");
+
+    button.textContent =
+      "Add to Pantry";
+
+  }, 1000);
+
+
+  showToast(
+    `✓ No. ${product.number} ${product.name} added to the pantry.`
+  );
+
+}
+
+
+/* ADD RANCH FROM DINNER SECTION */
+
+function addRanchFromDinner(button) {
+
+  const product =
+    addProductToCart(
+      "ranch",
+      "2 oz"
+    );
+
+  button.classList.add("added");
+
+  button.textContent =
+    "✓ Added to Pantry";
+
+  setTimeout(() => {
+
+    button.classList.remove("added");
+
+    button.textContent =
+      "Add No. 01 to Pantry";
+
+  }, 1100);
+
+
+  showToast(
+    `✓ No. ${product.number} ${product.name} added to the pantry.`
+  );
+
+}
+
+
+/* SAVE CART */
 
 function saveCart() {
-  localStorage.setItem("crookedGatePantry", JSON.stringify(cart));
+
+  localStorage.setItem(
+    "crookedGatePantry",
+    JSON.stringify(cart)
+  );
+
 }
 
 
-/* CART COUNT */
+/* TOTAL ITEM COUNT */
 
 function cartQuantity() {
-  return cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  return cart.reduce(
+    (sum, item) =>
+      sum + item.quantity,
+    0
+  );
+
 }
 
 
@@ -1322,11 +2043,17 @@ function cartQuantity() {
 
 function getPantryMessage(count) {
 
-  if (count === 0) return "The pantry's empty.";
-  if (count === 1) return "Good start.";
-  if (count < 5) return "The pantry's filling up.";
+  if (count === 0)
+    return "The pantry's empty.";
+
+  if (count === 1)
+    return "Good start.";
+
+  if (count < 5)
+    return "The pantry's filling up.";
 
   return "Now we're cooking.";
+
 }
 
 
@@ -1334,153 +2061,213 @@ function getPantryMessage(count) {
 
 function renderPantry() {
 
-  const container = document.getElementById("pantryItems");
+  const container =
+    document.getElementById("pantryItems");
 
-  const count = cartQuantity();
+  const count =
+    cartQuantity();
 
-  document.getElementById("cartCount").textContent = count;
-  document.getElementById("pantryMessage").textContent = getPantryMessage(count);
+  document.getElementById(
+    "cartCount"
+  ).textContent =
+    count;
+
+  document.getElementById(
+    "pantryMessage"
+  ).textContent =
+    getPantryMessage(count);
+
 
   if (cart.length === 0) {
 
     container.innerHTML = `
+
       <div class="empty-pantry">
-        <h3>The Pantry's Empty</h3>
+
+        <h3>
+          The Pantry's Empty
+        </h3>
+
         <p>
           Pick a Family Recipe and start stocking the shelves.
         </p>
+
       </div>
+
     `;
 
   } else {
 
-    container.innerHTML = cart.map((item, index) => {
+    container.innerHTML =
+      cart.map((item, index) => {
 
-      const recipe = item.recipe
-        ? `
-          <div class="pantry-recipe">
-            <span>From Our Table</span>
-            <a href="${item.recipeLink}" onclick="closePantry()">
-              ${item.recipe} →
-            </a>
-          </div>
-        `
-        : "";
+        return `
 
-      return `
-        <div class="pantry-item">
+          <div class="pantry-item">
 
-          <div class="pantry-item-top">
+            <div class="pantry-item-top">
 
-            <div>
-              <div class="pantry-item-number">
-                No. ${item.number}
+              <div>
+
+                <div class="pantry-item-number">
+                  No. ${item.number}
+                </div>
+
+                <h3>
+                  ${item.name}
+                </h3>
+
+                <div class="pantry-item-size">
+                  ${item.size} · $${item.price}
+                </div>
+
               </div>
 
-              <h3>${item.name}</h3>
 
-              <div class="pantry-item-size">
-                ${item.size} · $${item.price}
+              <div class="pantry-item-price">
+                $${(
+                  item.price *
+                  item.quantity
+                ).toFixed(2)}
               </div>
+
             </div>
 
-            <div class="pantry-item-price">
-              $${(item.price * item.quantity).toFixed(2)}
+
+            <div class="pantry-controls">
+
+              <div class="qty-control">
+
+                <button
+                  onclick="changeQuantity(${index}, -1)"
+                  aria-label="Decrease quantity"
+                >
+                  −
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  onclick="changeQuantity(${index}, 1)"
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <button
+                class="remove-item"
+                onclick="removeItem(${index})"
+              >
+                Remove
+              </button>
+
             </div>
 
           </div>
 
-          <div class="pantry-controls">
+        `;
 
-            <div class="qty-control">
+      }).join("");
 
-              <button
-                onclick="changeQuantity(${index}, -1)"
-                aria-label="Decrease quantity"
-              >
-                −
-              </button>
-
-              <span>${item.quantity}</span>
-
-              <button
-                onclick="changeQuantity(${index}, 1)"
-                aria-label="Increase quantity"
-              >
-                +
-              </button>
-
-            </div>
-
-            <button
-              class="remove-item"
-              onclick="removeItem(${index})"
-            >
-              Remove
-            </button>
-
-          </div>
-
-          ${recipe}
-
-        </div>
-      `;
-
-    }).join("");
   }
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
 
-  document.getElementById("pantryTotal").textContent =
+  const total =
+    cart.reduce(
+      (sum, item) =>
+        sum +
+        item.price *
+        item.quantity,
+      0
+    );
+
+
+  document.getElementById(
+    "pantryTotal"
+  ).textContent =
     `$${total.toFixed(2)}`;
+
 }
 
 
-/* QUANTITY */
+/* CHANGE QUANTITY */
 
 function changeQuantity(index, amount) {
 
   cart[index].quantity += amount;
 
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
+  if (
+    cart[index].quantity <= 0
+  ) {
+
+    cart.splice(
+      index,
+      1
+    );
+
   }
 
   saveCart();
+
   renderPantry();
+
 }
 
 
-/* REMOVE */
+/* REMOVE ITEM */
 
 function removeItem(index) {
 
-  cart.splice(index, 1);
+  cart.splice(
+    index,
+    1
+  );
 
   saveCart();
+
   renderPantry();
+
 }
 
 
-/* OPEN / CLOSE */
+/* OPEN PANTRY */
 
 function openPantry() {
 
-  document.getElementById("pantryDrawer").classList.add("open");
-  document.getElementById("pantryOverlay").classList.add("open");
+  document
+    .getElementById("pantryDrawer")
+    .classList.add("open");
 
-  document.body.classList.add("pantries-open");
+  document
+    .getElementById("pantryOverlay")
+    .classList.add("open");
+
+  document.body
+    .classList.add("pantries-open");
+
 }
+
+
+/* CLOSE PANTRY */
 
 function closePantry() {
 
-  document.getElementById("pantryDrawer").classList.remove("open");
-  document.getElementById("pantryOverlay").classList.remove("open");
+  document
+    .getElementById("pantryDrawer")
+    .classList.remove("open");
 
-  document.body.classList.remove("pantries-open");
+  document
+    .getElementById("pantryOverlay")
+    .classList.remove("open");
+
+  document.body
+    .classList.remove("pantries-open");
+
 }
 
 
@@ -1490,16 +2277,23 @@ let toastTimer;
 
 function showToast(message) {
 
-  const toast = document.getElementById("toast");
+  const toast =
+    document.getElementById("toast");
 
-  toast.textContent = message;
+  toast.textContent =
+    message;
+
   toast.classList.add("show");
 
   clearTimeout(toastTimer);
 
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 1800);
+  toastTimer =
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    }, 1800);
+
 }
 
 
@@ -1508,30 +2302,47 @@ function showToast(message) {
 function checkoutComingSoon() {
 
   if (cart.length === 0) {
-    showToast("The pantry's empty.");
+
+    showToast(
+      "The pantry's empty."
+    );
+
     return;
+
   }
 
-  const button = document.querySelector(".checkout-button");
-  const original = button.textContent;
+  const button =
+    document.querySelector(
+      ".checkout-button"
+    );
 
-  button.textContent = "Gathering everything from the pantry...";
+  const original =
+    button.textContent;
+
+  button.textContent =
+    "Gathering everything from the pantry...";
 
   setTimeout(() => {
 
-    button.textContent = "Checkout Coming Soon";
+    button.textContent =
+      "Checkout Coming Soon";
 
     setTimeout(() => {
-      button.textContent = original;
+
+      button.textContent =
+        original;
+
     }, 1600);
 
   }, 700);
+
 }
 
 
 /* START */
 
 renderProducts();
+
 renderPantry();
 
 </script>
